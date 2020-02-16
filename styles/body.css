@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    background-color: #fff;
+}
+
+.light-theme {
+    background-color: #fff;
+}
+
+.dark-theme {
+    background-color: #000;
+}
+
+footer {
+    font-size: 0.6em;
+    text-align: center;
+    color:  grey;
+    margin-bottom: 10px;
+}
+
+.backdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 50;
+}
+
+.hide-backdrop {
+    display: none;
+}
+
+#back-to-top {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    cursor: pointer;
+    background-color: rgb(92, 92, 92);
+    box-shadow: 0 0 5px 1px rgb(192, 191, 191);
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+}
+
+#back-to-top img {
+    height: 100%;
+}

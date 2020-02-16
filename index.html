@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- CSS Reset -->
+    <link type="text/css" rel="stylesheet" href="styles/reset.css">
+
+    <link type="text/css" rel="stylesheet" href="styles/body.css">
+    <link type="text/css" rel="stylesheet" href="styles/header.css">
+    <link type="text/css" rel="stylesheet" href="styles/fonts.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+    <link type="text/css" rel="stylesheet" href="styles/settings-bar.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Abril+Fatface|Caveat|Coda+Caption:800|Indie+Flower|Kanit|Krona+One|Lobster|Modak|Oswald|Pacifico|Patua+One|Permanent+Marker|Righteous|Roboto|Source+Code+Pro|Tomorrow&display=swap"
+        rel="stylesheet">
+    <title>Font Favorites</title>
+</head>
+
+<body>
+    <span class="hide-backdrop" id="backdrop"></span>
+    <header>
+        <h2 class="light-gray sans-family">Font Favorites</h2>
+        <nav>
+            <a class="light-gray sans-family" href="index.html">CATALOG</a>
+            <a class="light-gray sans-family" href="index.html">FEATURED</a>
+            <a class="light-gray sans-family" href="index.html">ARTICLES</a>
+            <a class="light-gray sans-family" href="index.html">ABOUT</a>
+        </nav>
+    </header>
+    <section>
+        <div>
+            <input id="search-font" placeholder="Search fonts" type="text">
+            <input class="no-display-480" id="example-text" placeholder="Type something" type="text">
+            <div>
+                <div class="no-display-480" id="font-size-toggle">
+                    <p id="current-font-size">16px</p>
+                    <div id="font-size-popup">
+                        <div>
+                            <span class="hidden-circle"></span>
+                            <p>32px</p><span class="hidden-circle"></span>
+                        </div>
+                        <div>
+                            <span class="hidden-circle"></span>
+                            <p>24px</p><span class="hidden-circle"></span>
+                        </div>
+                        <div>
+                            <span class="circle"></span>
+                            <p>16px</p><span class="circle"></span>
+                        </div>
+                        <div>
+                            <span class="hidden-circle"></span>
+                            <p>12px</p><span class="hidden-circle"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="theme-toggle">
+                    <div id="dark-theme"></div>
+                    <div id="light-theme"></div>
+                </div>
+                <div class="no-display-480" id="grid-toggle">
+                    <img id="grid-toggle-img" src="resources/svg/list.svg">
+                </div>
+                <div id="reset-input">
+                    <img id="reset-input-img" src="resources/svg/reset.svg">
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+    </main>
+    <span id="back-to-top"><img src="./resources/png/back-to-top.png"></span>
+    <footer></footer>
+</body>
+<script src="script/script.js"></script>
+</html>
