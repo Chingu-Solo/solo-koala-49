@@ -86,6 +86,7 @@ fillFooter();
 hideBackToTopBtn();
 
 document.getElementById('example-text').addEventListener('keyup', onExampleInputChanged);
+document.getElementById('search-font').addEventListener('keyup', onSearchInputChanged);
 document.getElementById('font-size-toggle').addEventListener('click', displayFontSizeSettings, { once: true });
 document.getElementById('grid-toggle').addEventListener('click', onOverlayToggle);
 document.getElementById('theme-toggle').addEventListener('click', onThemeToggle);
@@ -107,6 +108,13 @@ function renderFontElements(array) {
         document.getElementsByTagName('main')[0].appendChild(
             createElement(array[i].name, array[i].author, array[i].class)
         );
+    }
+}
+
+function removeFontElements() {
+    const parent = document.getElementsByTagName('main')[0];
+    while (parent.firstChild) {
+        parent.removeChild(parent.lastChild);
     }
 }
 
@@ -172,11 +180,26 @@ function onExampleInputChanged() {
     const numberOfExamples = document.getElementsByClassName('example-text').length;
 
     for (let i = 0; i < numberOfExamples; i++) {
-        const value = document.getElementById('example-text').value;
+        const value = document.getElementById('example-text').value; // this can be outside the loop
         const fontName = document.getElementsByClassName('font-name')[i].textContent;
 
         document.getElementsByClassName('example-text')[i].textContent = value !== '' ? value : fontName;
     }
+}
+
+function onSearchInputChanged() {
+    const value = document.getElementById('search-font').value;
+    const regValue = new RegExp(`${value}`, 'gi');
+    let matchingFonts = [];
+
+    fonts.forEach(element => {
+        if (regValue.test(element.name)) {
+            matchingFonts.push(element)
+        }
+    });
+
+    removeFontElements();
+    renderFontElements(value === "" ? fonts : matchingFonts);
 }
 
 function onThemeToggle() {
@@ -289,10 +312,10 @@ function closeFontSelector() {
 }
 
 function addEventListenersToFontSelectors() {
-    let popupChildren = document.getElementById("font-size-popup").children;
+    let fontSizes = document.getElementById("font-size-popup").children;
 
-    for (const node of popupChildren) {
-        node.addEventListener('click', () => onFontClicked(node, popupChildren), false);
+    for (const node of fontSizes) {
+        node.addEventListener('click', () => onFontClicked(node, fontSizes), false);
     }
 }
 
@@ -316,11 +339,18 @@ function changeCurrentFontSize(number) {
 }
 
 function onResetInputClicked() {
+    const inputValue = document.getElementById("search-font").value;
+
+    if (inputValue != "") {
+        document.getElementById("search-font").value = "";
+        onSearchInputChanged();
+    }
+
     document.getElementById("example-text").value = "";
     onExampleInputChanged();
 }
 
-function hideBackToTopBtn(){
+function hideBackToTopBtn() {
     document.getElementById('back-to-top').style.display = "none";
 }
 
